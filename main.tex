@@ -1,0 +1,277 @@
+\documentclass[a4paper,twoside=off]{scrbook}
+\usepackage{scrlayer-scrpage}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage{amsthm}
+
+\newcommand{\R}{\mathbb{R}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\newtheorem{proposition}{Proposition}[section]
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\usepackage{polynom}
+
+% Bibliography
+\usepackage[style=numeric,sorting=nyt,sortcites=true,autopunct=true,autolang=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+\addbibresource{bibliography.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\title{My Mathematical Journeybook}
+\author{Alistair Collins}
+\date{July 2020 to ?}
+
+\begin{document}
+% \frontmatter
+\maketitle
+\tableofcontents
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+\chapter{Introduction}
+\section{General}
+The idea of this book is to bring together and enhance my mathematical learning journey.  By compiling the steps I take (and having references to the books and papers I read) it should hopefully enable me to learn more (by having to understand it enough to write it down) and synchronise the different areas of study.\\
+This process should also enhance my understanding of \LaTeX and how to write a book.
+\vfill
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+\chapter{Calculus}
+"A Summary of Calculus" by Dovermann \cite{Dovermann}
+
+\section{Chapter 1: Basic Concepts}
+
+\begin{definition}
+Absolute value function
+\begin{equation}
+    \lvert x \rvert =\begin{cases}
+    x, & \text{if $x>0$}\\
+    -x, & \text{if $x<0$}\\
+    0, & \text{if $x=0$}
+  \end{cases}
+\end{equation}
+\end{definition}
+
+The distance between two points $a$ and $b$ on the real line is $\lvert a-b \rvert$. 
+Therefore, ${ \{ x \in \R \, | \, \lvert x-a \rvert < \epsilon \} }$ 
+is the set of all real numbers whose distance from $a$ is less than $\epsilon$.  Expressed as an interval this set is $(a - \epsilon , a + \epsilon )$.
+
+\begin{equation}
+\begin{gathered}
+    \lvert x . y \rvert = \lvert x \rvert . \lvert y \rvert \\
+    \lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert \\
+    \lvert \lvert x \rvert - \lvert y \rvert \rvert \leq \lvert x - y \rvert
+\end{gathered}
+\end{equation}
+
+
+\begin{proposition}
+Let $f$ be a function and $L$ a real number.  We say that
+\begin{equation}
+    L = \lim\limits_{x \to a} f(x)
+\end{equation}
+if for all $\epsilon > 0$ there exists a $\delta > 0$, such that $\lvert f(x) - L \rvert < \epsilon$ whenever $x$ is in the domain of $f$ and $ 0 < \lvert x - a \rvert < \delta$.
+\end{proposition}
+This reads as $L$ is the limit of $f(x)$ as $x$ approaches $a$.
+
+
+\begin{proposition}
+Assume that the domains of the functions $f(x)$ and $g(x)$ both contain an interval of the form
+$(d,a)$ or $(a,e)$ where $d < a < e$.  Suppose that
+\begin{equation}
+    \lim\limits_{x \to a}f(x) = L \text{   and   } \lim\limits_{x \to a}g(x) = M
+\end{equation}
+and that $c$ is a constant.  Then
+\begin{equation}
+    \begin{gathered}
+        \lim\limits_{x \to a}(f+g)(x) = M + L \\
+        \lim\limits_{x \to a}c(f)(x) = cM \\
+        \lim\limits_{x \to a}(f . g)(x) = M . L \\
+        \lim\limits_{x \to a}(f/g)(x) = M / L\text{ provided that } L \neq 0. \\
+    \end{gathered}
+\end{equation}
+\end{proposition}
+
+\begin{proposition}\textbf{(Pinching Theorem)}
+Assume that the domains of the functions $f(x)$, $g(x)$, and $h(x)$ all contain an interval of the form $(d,a)$ or $(a,e)$ where $d < a < e$ and that $f(x) \leq h(x) \leq g(x)$.  If
+\begin{equation}
+    \lim\limits_{x \to a}f(x) = L = \lim\limits_{x \to a}g(x)
+\end{equation}
+then the limit of $h(x)$ exists as x approaches $a$, and it is equal to $L$.
+\end{proposition}
+
+
+\begin{proposition}
+    If f(x) is a polynomial, a rational function, or a trigonometric function and f(a) is defined, then
+    \begin{equation}
+        \lim\limits_{x \to a}f(x) = f(a)
+    \end{equation}
+\end{proposition}
+
+\medskip
+
+The following limits are important in the calculation of some derivatives:
+\begin{equation}
+    \begin{gathered}
+        \lim\limits_{x \to 0} \frac{\cos x - 1}{x} = 0 \\
+        \lim\limits_{x \to 0} \frac{\sin x}{x} = 0 \\
+        \lim\limits_{x \to a} \frac{x^{n} - a^{n}}{x - a} = na^{n-1}
+    \end{gathered}
+\end{equation}
+The last assertion can be proved using synthetic division, at least if $n$ is an integer.
+
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER ?
+%----------------------------------------------------------------------------------------
+\chapter{Other}
+\section{Rational Roots Test}
+[\url{https://www.purplemath.com/modules/rtnlroot.htm}] \\
+Trying to find rational roots of a polynomial.  For instance,
+\begin{equation}
+    x^{4} + 2x^{3} - 7x^{2} - 8x + 12
+\end{equation}
+The constant term is 12 and the leading coefficient is 1.  The roots will be found at
+(plus-or-minus) (factor of the constant term) / (factor of the leading coefficient), so in this case $\pm 12, 6, 4, 3, 2, 1 = -12, -6, -4, -3, -2, -1, 1, 2, 3, 4, 6, 12$
+
+Note that the following figure illustrates that the roots exist at $-3, -2, 1, 2$:
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    axis x line shift=-5,
+    xtick distance = 2,
+    ytick distance = 1,
+    width = 10cm,
+    height = 10cm,
+    xlabel = $x$,
+    ylabel = {$f(x)$},
+    ymin = -5,
+    ymax = 5,
+    xmin = -12,
+    xmax = 12,
+]
+%Below the red parabola is defined
+\addplot [
+    domain=-12:12, 
+    restrict y to domain=-20:20,
+    samples=200, 
+    color=red,
+]
+{x^4 + 2*x^3 - 7*x^2 - 8*x + 12};
+%\addlegendentry{$x^2 - 2x - 1$}
+
+\end{axis}
+\end{tikzpicture}
+
+\section{Synthetic Division}
+[\url{https://www.purplemath.com/modules/synthdiv.htm}] \\
+Synthetic division is a shorthand, or shortcut, method of polynomial division in the special case of dividing by a linear factor -- and it only works in this case. Synthetic division is generally used, however, not for dividing out factors but for finding zeroes (or roots) of polynomials.
+
+For a particular polynomial, first use the Rational Roots Test to determine likely zeros.  Then use Synthetic Division to check each potential factor for a zero remainder.
+
+For instance, using again $f(x) = x^{4} + 2x^{3} - 7x^{2} - 8x + 12 = 0$
+\medskip
+
+\polylongdiv{x^4+2*x^3-7*x^2-8*x+12}{x+3} \\
+\medskip
+is equivalent to \\
+\medskip
+\polyhornerscheme[x=-3]{x^4 + 2*x^3 - 7*x^2 - 8*x + 12}\\
+\medskip
+
+From this latter equation you can write
+\begin{equation}
+    x^{4} + 2x^{3} - 7x^{2} - 8x + 12 = (x + 3) \left( x^{3} - x^{2} - 4x + 4 + \frac{0}{x+3} \right)
+\end{equation}
+where as the numerator of the last term is zero, this equates to a root of the equation.
+
+\pagebreak
+\section{Unit Circle}
+[\url{http://www.texample.net/tikz/examples/unit-circle/}]
+
+\begin{tikzpicture}[scale=5.3,cap=round,>=latex]
+    % draw the coordinates
+    \draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};
+    \draw[->] (0cm,-1.5cm) -- (0cm,1.5cm) node[above,fill=white] {$y$};
+
+    % draw the unit circle
+    \draw[thick] (0cm,0cm) circle(1cm);
+
+    \foreach \x in {0,30,...,360} {
+            % lines from center to point
+            \draw[gray] (0cm,0cm) -- (\x:1cm);
+            % dots at each point
+            \filldraw[black] (\x:1cm) circle(0.4pt);
+            % draw each angle in degrees
+            \draw (\x:0.6cm) node[fill=white] {$\x^\circ$};
+    }
+
+    % draw each angle in radians
+    \foreach \x/\xtext in {
+        30/\frac{\pi}{6},
+        45/\frac{\pi}{4},
+        60/\frac{\pi}{3},
+        90/\frac{\pi}{2},
+        120/\frac{2\pi}{3},
+        135/\frac{3\pi}{4},
+        150/\frac{5\pi}{6},
+        180/\pi,
+        210/\frac{7\pi}{6},
+        225/\frac{5\pi}{4},
+        240/\frac{4\pi}{3},
+        270/\frac{3\pi}{2},
+        300/\frac{5\pi}{3},
+        315/\frac{7\pi}{4},
+        330/\frac{11\pi}{6},
+        360/2\pi}
+            \draw (\x:0.85cm) node[fill=white] {$\xtext$};
+
+    \foreach \x/\xtext/\y in {
+        % the coordinates for the first quadrant
+        30/\frac{\sqrt{3}}{2}/\frac{1}{2},
+        45/\frac{\sqrt{2}}{2}/\frac{\sqrt{2}}{2},
+        60/\frac{1}{2}/\frac{\sqrt{3}}{2},
+        % the coordinates for the second quadrant
+        150/-\frac{\sqrt{3}}{2}/\frac{1}{2},
+        135/-\frac{\sqrt{2}}{2}/\frac{\sqrt{2}}{2},
+        120/-\frac{1}{2}/\frac{\sqrt{3}}{2},
+        % the coordinates for the third quadrant
+        210/-\frac{\sqrt{3}}{2}/-\frac{1}{2},
+        225/-\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2},
+        240/-\frac{1}{2}/-\frac{\sqrt{3}}{2},
+        % the coordinates for the fourth quadrant
+        330/\frac{\sqrt{3}}{2}/-\frac{1}{2},
+        315/\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2},
+        300/\frac{1}{2}/-\frac{\sqrt{3}}{2}}
+            \draw (\x:1.25cm) node[fill=white] {$\left(\xtext,\y\right)$};
+
+    % draw the horizontal and vertical coordinates
+    % the placement is better this way
+    \draw (-1.25cm,0cm) node[above=1pt] {$(-1,0)$}
+          (1.25cm,0cm)  node[above=1pt] {$(1,0)$}
+          (0cm,-1.25cm) node[fill=white] {$(0,-1)$}
+          (0cm,1.25cm)  node[fill=white] {$(0,1)$};
+\end{tikzpicture}
+
+
+%----------------------------------------------------------------------------------------
+%	Bibliography 
+%----------------------------------------------------------------------------------------
+\printbibliography[heading=bibintoc]
+
+%----------------------------------------------------------------------------------------
+%	END 
+%----------------------------------------------------------------------------------------
+\end{document}
